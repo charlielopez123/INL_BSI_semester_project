@@ -13,3 +13,4 @@ wandb/
 data_process.py
 lighthouse-features-preprocessing.zip
 
+.DS_Store
