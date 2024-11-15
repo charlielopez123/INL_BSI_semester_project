@@ -1,0 +1,15 @@
+dataset/
+INL_project/
+jupyter_notebooks/data/
+jupyter_notebooks/lightning_logs/
+jupyter_notebooks/original/
+jupyter_notebooks/wandb/
+lighthouse-features-preprocessing/
+lighthouse-main/
+processed_data/
+scripts/
+wandb/
+
+data_process.py
+lighthouse-features-preprocessing.zip
+
