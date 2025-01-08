@@ -11,7 +11,6 @@ This project builds upon the foundational work of [Wagner et al.](https://www.na
 - Developing a transformer-based neural decoding model.
 - Exploring feature engineering using FFT, DWT, and CWT.
 - Investigating dimensionality reduction techniques like PCA and forward selection.
-- 
 ---
 
 ## Features
