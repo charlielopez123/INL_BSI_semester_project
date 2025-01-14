@@ -1,20 +1,27 @@
+#!/bin/bash -l
+#SBATCH --chdir /scratch/izar/maetz
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 10
+#SBATCH --mem 140G
+#SBATCH --time 10:00:00
+#SBATCH --gres gpu:1
+
 # export CUDA_VISIBLE_DEVICES=0
-python -u src/train.py \
+python -u /src/train.py \
     --is_training 1 \
-    --model_id "BSIformer_classification_BSI_sample_relu_cut1_emb16_channelemb_preprocess_linearattn2_fftap2_batchstand_etf_cwt_2" \
+    --model_id "BSIformer_classification_BSIT_sample_use_cwt_cmor1-1_magnitude_PCA" \
     --model "BSIformerT" \
     --task "Classification" \
     --dataset "BSIsample" \
-    --dataset_dir "dataset"\
-    --batch_size 200 \
+    --batch_size 512 \
     --embed_dim 32 \
     --hidden_dim 128 \
     --num_heads 2 \
     --num_layers 2 \
-    --num_t_pints 590 \
-    --num_patches 744 \
+    --num_t_pints 744 \
+    --num_patches 590 \
     --num_cut 1 \
-    --n_epochs 150 \
+    --n_epochs 200 \
     --early_stop 40 \
     --n_classes 4 \
     --plot_epoch 30 \
@@ -26,8 +33,12 @@ python -u src/train.py \
     --N_WORKERS 16 \
     --gpu "cuda:0" \
     --scaling \
-    --etf \
-    --use_fft \
     --mask_rate 0.0 \
+    --etf \
     --use_cwt \
-
+    --pca \
+    --pca_features 384\
+    # --use_fft \
+    
+    # --etf
+    

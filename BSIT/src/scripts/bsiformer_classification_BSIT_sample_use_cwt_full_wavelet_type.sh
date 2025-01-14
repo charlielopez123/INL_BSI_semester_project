@@ -3,23 +3,23 @@
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 10
 #SBATCH --mem 70G
-#SBATCH --time 02:00:00
+#SBATCH --time 10:00:00
 #SBATCH --gres gpu:1
 
 # export CUDA_VISIBLE_DEVICES=0
 python -u /src/train.py \
     --is_training 1 \
-    --model_id "BSIformer_classification_BSIT_samplewavelet_relu_cut1_emb32_channelemb_linearattn2_batchstand_etf+proj" \
+    --model_id "BSIformer_classification_BSIT_sample_use_full_cwt_cgau1_relu_cut1_emb32_channelemb_linearattn2_batchstand_etf+proj" \
     --model "BSIformerT" \
     --task "Classification" \
-    --dataset "BSIsamplewavelet" \
+    --dataset "BSIsample" \
     --batch_size 512 \
     --embed_dim 32 \
     --hidden_dim 128 \
     --num_heads 2 \
     --num_layers 2 \
-    --num_t_pints 768 \
-    --num_patches 10 \
+    --num_t_pints 744 \
+    --num_patches 590 \
     --num_cut 1 \
     --n_epochs 150 \
     --early_stop 40 \
@@ -35,6 +35,8 @@ python -u /src/train.py \
     --scaling \
     --mask_rate 0.0 \
     --etf \
+    --use_cwt \
+    --wavelet 'cgau1' \
     # --use_fft \
     
     # --etf

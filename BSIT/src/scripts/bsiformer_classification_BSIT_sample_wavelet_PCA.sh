@@ -3,13 +3,13 @@
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 10
 #SBATCH --mem 70G
-#SBATCH --time 02:00:00
+#SBATCH --time 10:00:00
 #SBATCH --gres gpu:1
 
 # export CUDA_VISIBLE_DEVICES=0
 python -u /src/train.py \
     --is_training 1 \
-    --model_id "BSIformer_classification_BSIT_samplewavelet_relu_cut1_emb32_channelemb_linearattn2_batchstand_etf+proj" \
+    --model_id "BSIformer_classification_BSIT_samplewavelet_PCA" \
     --model "BSIformerT" \
     --task "Classification" \
     --dataset "BSIsamplewavelet" \
@@ -35,6 +35,8 @@ python -u /src/train.py \
     --scaling \
     --mask_rate 0.0 \
     --etf \
+    --pca \
+    --pca_features 384 \
     # --use_fft \
     
     # --etf

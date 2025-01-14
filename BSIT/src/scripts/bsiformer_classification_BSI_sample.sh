@@ -7,19 +7,19 @@
 #SBATCH --gres gpu:1
 
 # export CUDA_VISIBLE_DEVICES=0
-python -u /src/train.py \
+python -u src/train.py \
     --is_training 1 \
-    --model_id "BSIformer_classification_BSIT_samplewavelet_relu_cut1_emb32_channelemb_linearattn2_batchstand_etf+proj" \
-    --model "BSIformerT" \
+    --model_id "BSIformer_classification_BSI_sample_relu_cut1_emb16_channelemb_preprocess_linearattn2_fftap2_batchstand_etf" \
+    --model "BSIformer" \
     --task "Classification" \
-    --dataset "BSIsamplewavelet" \
-    --batch_size 512 \
+    --dataset "BSIsample" \
+    --batch_size 200 \
     --embed_dim 32 \
     --hidden_dim 128 \
     --num_heads 2 \
     --num_layers 2 \
-    --num_t_pints 768 \
-    --num_patches 10 \
+    --num_t_pints 295 \
+    --num_patches 31 \
     --num_cut 1 \
     --n_epochs 150 \
     --early_stop 40 \
@@ -33,8 +33,10 @@ python -u /src/train.py \
     --N_WORKERS 16 \
     --gpu "cuda:0" \
     --scaling \
-    --mask_rate 0.0 \
     --etf \
+    --use_fft \
+    --mask_rate 0.0 \
+    # --etf \
     # --use_fft \
     
     # --etf
