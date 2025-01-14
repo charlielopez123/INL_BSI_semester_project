@@ -7,7 +7,7 @@ jupyter_notebooks/wandb/
 lighthouse-features-preprocessing/
 lighthouse-main/
 processed_data/
-
+jupyter_notebooks/
 wandb/
 
 data_process.py
