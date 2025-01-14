@@ -1,0 +1,39 @@
+# Action to build and publish doc on gh-pages branch with poetry and sphinx
+#
+# Author: Etienne de Montalivet
+name: lighthouse doc build
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+permissions:
+    contents: write
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+
+    name: build-doc_python
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Setup poetry
+        uses: SG60/setup-poetry@v1
+      - run: poetry install
+      - name: Sphinx build
+        shell: bash -el {0}
+        run: |
+          poetry run sphinx-build docs/source docs/build  
+      - name: Deploy doc on gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages-${{ env.BRANCH_NAME }}
+          publish_dir: docs/build/
+          force_orphan: true

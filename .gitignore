@@ -4,8 +4,6 @@ jupyter_notebooks/data/
 jupyter_notebooks/lightning_logs/
 jupyter_notebooks/original/
 jupyter_notebooks/wandb/
-lighthouse-features-preprocessing/
-lighthouse-main/
 processed_data/
 jupyter_notebooks/
 wandb/
