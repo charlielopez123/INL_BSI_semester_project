@@ -36,7 +36,7 @@ This project builds upon the foundational work of [Wagner et al.](https://www.na
 This repository contains implementations of Vision Transformer (ViT) models for various tasks, alongside extensions and modifications to the original architecture. It includes:
 
 - The workspace for the base Vision Transformer model (i.e the **original model**) as described in the [paper](Report_INL.pdf), including the shell scripts to run the different models
-- The workspace for the BSIT model forked from [here](https://github.com/XYHZJU/Digital_Bridge_Torch), including the shell scripts to run the different models
+- The workspace for the BSIT model forked from [XYHZJU/Digital_Bridge_Torch](https://github.com/XYHZJU/Digital_Bridge_Torch) repository, including the shell scripts to run the different models
 
 ---
 ## Running the code
